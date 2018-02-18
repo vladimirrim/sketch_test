@@ -1,11 +1,15 @@
 package ru.spbau.egorov.tee;
 
 
+import org.jetbrains.annotations.NotNull;
 import ru.spbau.egorov.tee.parser.Parser;
 
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * This class implements tee command.
+ */
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner scan = new Scanner(System.in);

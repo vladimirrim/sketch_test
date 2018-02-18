@@ -1,11 +1,16 @@
 package ru.spbau.egorov.tee.parser;
 
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
+/**
+ * This class parses arguments for tee command.
+ */
 public class Parser {
-    public static ParseResult parseCommandLine(String[] args) {
-        ArrayList<String> filenames = new ArrayList<String>();
+    public static ParseResult parseCommandLine(@NotNull String[] args) {
+        ArrayList<String> filenames = new ArrayList<>();
         boolean appendFlag = false;
         boolean ignoreFlag = false;
         boolean isOptions = true;
@@ -32,7 +37,7 @@ public class Parser {
                             break;
                         }
                         case 3: {
-                            if (arg.equals("-ai") || arg.equals("ia")) {
+                            if (arg.equals("-ai") || arg.equals("-ia")) {
                                 appendFlag = true;
                                 ignoreFlag = true;
                             } else {
@@ -48,6 +53,9 @@ public class Parser {
 
                         }
                     }
+                } else {
+                    filenames.add(arg);
+                    isOptions = false;
                 }
             } else {
                 filenames.add(arg);
